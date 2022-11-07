@@ -1,0 +1,28 @@
+---
+title: Quarto nvim demo
+format: html
+engine: knitr
+---
+
+## Hello World
+
+```{r} 
+print("Hello from R")
+x <- 1
+```
+
+```{python} 
+print('Hello from python')
+x = 2
+```
+
+```{r} 
+x
+```
+
+```{python} 
+print(x)
+```
+
+This is inline R code, which will say 2: `r 1 + 1`
+
