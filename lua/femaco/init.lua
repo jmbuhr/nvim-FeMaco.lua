@@ -8,8 +8,18 @@ local update_config = function(opts)
   end
 end
 
+M.debug = function ()
+  print('debug 2')
+end
+
+local reload = function (module)
+  package.loaded[module] = nil
+  return require(module) -- loads an updated version of module
+end
+
 local create_commands = function()
   vim.api.nvim_create_user_command('FeMaco', function() require('femaco.edit').edit_code_block() end, {})
+  vim.api.nvim_create_user_command('FeMacoDebug', function() reload('femaco').debug() end, {})
 end
 
 M.setup = function(opts)
